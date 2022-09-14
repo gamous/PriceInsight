@@ -72,6 +72,8 @@ public class PriceInsightPlugin : IDalamudPlugin {
         pluginInterface.UiBuilder.OpenConfigUi += OpenConfigUI;
         framework.Update += FrameworkOnUpdate;
         clientState.Logout += ClientStateOnLogout;
+
+        (new Utils4CN.Init(pluginInterface)).ReplaceDataIfCN();
     }
 
     private void ClientStateOnLogout(object? sender, EventArgs e) {

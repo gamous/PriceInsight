@@ -30,31 +30,31 @@ class ConfigUI : IDisposable {
         if (ImGui.Begin("Price Insight Config", ref settingsVisible,
                 ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)) {
             var configValue = configuration.ShowDatacenter;
-            if (ImGui.Checkbox("Show datacenter price info", ref configValue)) {
+            if (ImGui.Checkbox("显示大区价格", ref configValue)) {
                 configuration.ShowDatacenter = configValue;
                 configuration.Save();
             }
 
             configValue = configuration.ShowWorld;
-            if (ImGui.Checkbox("Show home world price info", ref configValue)) {
+            if (ImGui.Checkbox("显示原始服务器价格", ref configValue)) {
                 configuration.ShowWorld = configValue;
                 configuration.Save();
             }
 
             configValue = configuration.ShowMostRecentPurchase;
-            if (ImGui.Checkbox("Show most recent purchase", ref configValue)) {
+            if (ImGui.Checkbox("显示最近购买价格", ref configValue)) {
                 configuration.ShowMostRecentPurchase = configValue;
                 configuration.Save();
             }
 
             configValue = configuration.ShowMostRecentPurchaseWorld;
-            if (ImGui.Checkbox("Show most recent purchase on your home world", ref configValue)) {
+            if (ImGui.Checkbox("显示原始服务器最近购买价格", ref configValue)) {
                 configuration.ShowMostRecentPurchaseWorld = configValue;
                 configuration.Save();
             }
 
             configValue = configuration.IgnoreOldData;
-            if (ImGui.Checkbox("Ignore data older than 1 month", ref configValue)) {
+            if (ImGui.Checkbox("忽略一个月以前的数据", ref configValue)) {
                 configuration.IgnoreOldData = configValue;
                 configuration.Save();
             }

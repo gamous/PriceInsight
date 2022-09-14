@@ -94,17 +94,8 @@
 		</Content>
 	</ItemGroup>
 
-	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+	<PropertyGroup>
 		<OutputPath>$(AppData)\XIVLauncher\devPlugins\$(AssemblyName)</OutputPath>
 	</PropertyGroup>
 
-
-	<!-- Dalamud Packager Task-->
-	<Target Name="DalamudPackageDebug" AfterTargets="Build" Condition="'$(Configuration)' == 'Debug'">
-		<DalamudPackager ProjectDir="$(ProjectDir)" OutputPath="$(AppData)\XIVLauncher\devPlugins\$(AssemblyName)" AssemblyName="$(AssemblyName)" MakeZip="false" VersionComponents="4" />
-	</Target>
-
-	<Target Name="DalamudPackageRelease" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
-		<DalamudPackager ProjectDir="$(ProjectDir)" OutputPath="$(TargetDir)" AssemblyName="$(AssemblyName)" MakeZip="true" Exclude="$(AssemblyName).pdb" VersionComponents="4" />
-	</Target>
 </Project>

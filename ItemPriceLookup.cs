@@ -16,7 +16,7 @@ public class ItemPriceLookup : IDisposable {
     private string? datacenter;
     private readonly HashSet<uint> requestedItems = new();
     private DateTime lastRequest = DateTime.UnixEpoch;
-
+    
     public ItemPriceLookup(PriceInsightPlugin plugin) {
         this.plugin = plugin;
     }

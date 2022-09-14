@@ -107,7 +107,7 @@ public class ItemPriceTooltip : IDisposable {
         if (marketBoardData == null) {
             payloads.Add(new UIForegroundPayload(20));
             payloads.Add(new IconPayload(BitmapFontIcon.LevelSync));
-            payloads.Add(new TextPayload(" Marketboard info is being obtained..\n        Tap Ctrl to refresh."));
+            payloads.Add(new TextPayload(" 正在获取在线数据..\n        单击 Ctrl 刷新"));
             payloads.Add(new UIForegroundPayload(0));
         } else {
             var mb = marketBoardData.Value;
@@ -119,10 +119,10 @@ public class ItemPriceTooltip : IDisposable {
             var recentHeader = false;
 
             if (plugin.Configuration.ShowDatacenter && minWorld != ownWorld) {
-                payloads.Add(new TextPayload("Marketboard Price:"));
+                payloads.Add(new TextPayload("交易板价格:"));
                 priceHeader = true;
 
-                payloads.Add(new TextPayload("\n  Cheapest ("));
+                payloads.Add(new TextPayload("\n  最低价 ("));
                 payloads.Add(new IconPayload(BitmapFontIcon.CrossWorld));
                 payloads.Add(new TextPayload($"{minWorld}): "));
                 if (mb.MinimumPriceNQ != null) {
@@ -153,8 +153,8 @@ public class ItemPriceTooltip : IDisposable {
 
             if (ownWorld != null && (plugin.Configuration.ShowWorld || (plugin.Configuration.ShowDatacenter && minWorld == ownWorld))) {
                 if (!priceHeader)
-                    payloads.Add(new TextPayload("Marketboard Price:"));
-                payloads.Add(new TextPayload($"\n  Home ({ownWorld}): "));
+                    payloads.Add(new TextPayload("交易板价格:"));
+                payloads.Add(new TextPayload($"\n  所属服: ({ownWorld}): "));
                 if (mb.OwnMinimumPriceNQ != null) {
                     if (!hq)
                         payloads.Add(new UIForegroundPayload(506));
@@ -186,9 +186,9 @@ public class ItemPriceTooltip : IDisposable {
             if (plugin.Configuration.ShowMostRecentPurchase && recentWorld != ownRecentWorld) {
                 if (payloads.Count > 0)
                     payloads.Add(new TextPayload("\n"));
-                payloads.Add(new TextPayload("Most Recent Purchase:"));
+                payloads.Add(new TextPayload("最近购买:"));
                 recentHeader = true;
-                payloads.Add(new TextPayload("\n  Cheapest ("));
+                payloads.Add(new TextPayload("\n  最低价 ("));
                 payloads.Add(new IconPayload(BitmapFontIcon.CrossWorld));
                 payloads.Add(new TextPayload($"{recentWorld}): "));
                 if (mb.MostRecentPurchaseNQ != null) {
@@ -221,10 +221,10 @@ public class ItemPriceTooltip : IDisposable {
                 if (!recentHeader) {
                     if (payloads.Count > 0)
                         payloads.Add(new TextPayload("\n"));
-                    payloads.Add(new TextPayload("Most Recent Purchase:"));
+                    payloads.Add(new TextPayload("最近购买:"));
                 }
 
-                payloads.Add(new TextPayload($"\n  Home ({ownRecentWorld}): "));
+                payloads.Add(new TextPayload($"\n  所属服: ({ownRecentWorld}): "));
                 if (mb.OwnMostRecentPurchaseNQ != null) {
                     if (!hq)
                         payloads.Add(new UIForegroundPayload(506));
